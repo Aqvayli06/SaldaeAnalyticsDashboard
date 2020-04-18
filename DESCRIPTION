@@ -1,0 +1,13 @@
+Package: SaldaeAnalyticsDashboard
+Title: Saldae Analytics
+Version: 0.0.0.9000
+Authors@R: person('Farid', 'Azouaou', email = 'contact@saldaeanalytics.com', role = c('cre', 'aut'))
+Description: A web-based reactive platform dedicated for time series data processing wrangling and forecasting
+License: MIT + file LICENSE
+Imports: 
+    config,
+    golem,
+    shiny
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
