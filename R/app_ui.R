@@ -6,7 +6,7 @@
 #' @noRd
 
 require("shiny")
-
+require("dplyr")
 app_ui <- function(request) {
   tagList(
     golem_add_external_resources(),
