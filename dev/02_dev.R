@@ -1,16 +1,25 @@
-usethis::use_package( "thinkr" )
-golem::add_module( name = "name_of_module1" )
-golem::add_module( name = "name_of_module2" )
-golem::add_fct( "helpers" ) 
-golem::add_utils( "helpers" )
+
+usethis::use_package("shiny")
+usethis::use_package("prophet")
+
+usethis::use_package("shinydashboard")
+usethis::use_package("SaldaeDataExplorer")
+usethis::use_package("SaldaeModulesUI")
+usethis::use_package("SaldaeForecasting")
+
+
 golem::add_js_file( "script" )
 golem::add_js_handler( "handlers" )
 golem::add_css_file( "custom" )
-usethis::use_data_raw( name = "my_dataset", open = FALSE ) 
+
+#-------Test 
 usethis::use_test( "app" )
-usethis::use_vignette("SaldaeAnalyticsDashboard")
-devtools::build_vignettes()
+
+#---- Project management
 usethis::use_github()
-usethis::use_travis()
-usethis::use_appveyor()
+# usethis::use_travis()
+# usethis::use_appveyor()
+
+#---------- Deploy App
+
 rstudioapi::navigateToFile("dev/03_deploy.R")
