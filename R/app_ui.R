@@ -72,7 +72,7 @@ app_ui <- function(request) {
           #------------ reporting pool
           
           shinydashboard::tabItem("reporting_settings",
-                                  SA_reporting_UI("Saldae_reporting")
+                                  SaldaeModulesUI::SA_reporting_UI("Saldae_reporting")
           )
           
         #- tagara menu item

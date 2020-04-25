@@ -30,7 +30,7 @@ app_server <-   function(input, output, session) {
   
   
   #------ Reporting Pool
-  callModule(module = SA_reporting_mod, id = "Saldae_reporting",tisefka_list = reactive({tisefka_aggregated()}))
+  callModule(module = SaldaeModulesUI::SA_reporting_mod, id = "Saldae_reporting",tisefka_list = reactive({tisefka_aggregated()}))
   
   ###########################################
   #########                           #######
