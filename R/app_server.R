@@ -18,9 +18,14 @@ app_server <-   function(input, output, session) {
   #------- CandleStick View
   callModule(module =  SaldaeModulesUI::Saldae_taftilt_mod, id = "SA_taftilt_test", tisefka = reactive({tisefka_inu()}))
   
+  #------ Waterfall view
   callModule(module =  SaldaeModulesUI::Saldae_kefrida_mod, id = "SA_kefrida_test", tisefka = reactive({tisefka_inu()}))
   
-  # #------ Data Clustering
+  #------ Map
+  callModule(module =  SaldaeModulesUI::Saldae_amadal_mod, id = "SA_amadal_test", tisefka = reactive({tisefka_inu()}))
+  
+  
+  #------ Data Clustering
   # callModule(module =  SA_clustering_mod, id = "SA_clustering_test", tisefka = reactive({tisefka_inu()}))
   # 
   #----- Value Box

@@ -58,9 +58,13 @@ app_ui <- function(request) {
           shinydashboard::tabItem("data_insights", 
                                   SaldaeModulesUI::SA_tisefka_multiple_UI("SA_multiple_test",mod_title= "Saldae Module")
                                   ),
-          shinydashboard::tabItem("business_charts", 
-                                  SaldaeModulesUI::Saldae_taftilt_UI("SA_taftilt_test",mod_title= "Saldae CandleStick Module"),
-                                  SaldaeModulesUI::Saldae_kefrida_UI("SA_kefrida_test",mod_title= "Saldae CandleStick Module")
+          shinydashboard::tabItem("business_charts",
+                                  fluidRow(
+                                    col_6(SaldaeModulesUI::Saldae_taftilt_UI("SA_taftilt_test",mod_title= "Saldae CandleStick Module")),
+                                    col_6(SaldaeModulesUI::Saldae_amadal_UI("SA_amadal_test",mod_title= "Saldae Map Module"))
+                                  ),
+                                  SaldaeModulesUI::Saldae_kefrida_UI("SA_kefrida_test",mod_title= "Saldae Waterfall Module")
+                                  
                                   
           ),
           
