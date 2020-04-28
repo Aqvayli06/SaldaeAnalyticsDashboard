@@ -15,6 +15,14 @@ app_server <-   function(input, output, session) {
   #----- multiple plot multiple graphs
   callModule(module =  SaldaeModulesUI::SA_tisefka_multiple_mod, id = "SA_multiple_test", tisefka = reactive({tisefka_inu()}))
   
+  #------- CandleStick View
+  callModule(module =  Saldae_taftilt_mod, id = "SA_taftilt_test", tisefka = reactive({tisefka_inu()}))
+  
+  callModule(module =  Saldae_kefrida_mod, id = "SA_kefrida_test", tisefka = reactive({tisefka_inu()}))
+  
+  # #------ Data Clustering
+  # callModule(module =  SA_clustering_mod, id = "SA_clustering_test", tisefka = reactive({tisefka_inu()}))
+  # 
   #----- Value Box
   callModule(module = SaldaeModulesUI::SA_Value_box_server, id = "SA_valuebox", tisefka = tisefka_vb)
   

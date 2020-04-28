@@ -22,7 +22,7 @@ app_ui <- function(request) {
                                          ),
                                          shinydashboard::menuItem("Advanced", icon = icon("briefcase"), startExpanded = FALSE,
                                                                   shinydashboard::menuSubItem("Growth Rate", tabName = "growth_rate"),
-                                                                  shinydashboard::menuSubItem("Waterfall", tabName = "business_charts")
+                                                                  shinydashboard::menuSubItem("Business", tabName = "business_charts")
                                          ),
                                          shinydashboard::menuItem("Advanced Analytics", icon = icon("chart-line"), startExpanded = FALSE,
                                                                   shinydashboard::menuSubItem("Causality", tabName = "causal_impact"),
@@ -58,12 +58,21 @@ app_ui <- function(request) {
           shinydashboard::tabItem("data_insights", 
                                   SaldaeModulesUI::SA_tisefka_multiple_UI("SA_multiple_test",mod_title= "Saldae Module")
                                   ),
+          shinydashboard::tabItem("business_charts", 
+                                  Saldae_taftilt_UI("SA_taftilt_test",mod_title= "Saldae CandleStick Module"),
+                                  Saldae_kefrida_UI("SA_kefrida_test",mod_title= "Saldae CandleStick Module")
+                                  
+          ),
+          
           shinydashboard::tabItem("data_aggregation",
                                   SaldaeModulesUI::SA_tisefka_aggregator_UI("SA_time_aggregator")
                                   ),
           shinydashboard::tabItem("growth_rate",
                                   SaldaeModulesUI::SA_tisefka_gemmu_UI("SA_tisfka_gemmu")
           ),
+          # shinydashboard::tabItem("causal_impact",
+          #                         SA_clustering_ui("SA_clustering_test")
+          # ),
           shinydashboard::tabItem("advanced_analytics",
                                   SaldaeModulesUI::SA_tisefka_forecast_UI("SA_tisfka_forecast")
           )

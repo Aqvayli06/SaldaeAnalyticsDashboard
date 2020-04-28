@@ -1,14 +1,14 @@
 ---
-title: sales report
-author: faridh
-date: 2020-04-25 15:10
+title: Report
+author: Faridh
+date: 2020-04-27 22:47
 output:
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    social: menu
-    theme: sandstone
-    favicon: saldae_logo.png
-    source_code: embed
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+    toc: yes
+    number_sections: yes
+    fig_caption: yes
 params:
   sald_explor_chart: NA
   sald_predict_chart: NA
