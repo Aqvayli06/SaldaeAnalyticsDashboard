@@ -7,6 +7,7 @@
 
 require("shiny")
 require("dplyr")
+require("prophet")
 app_ui <- function(request) {
   tagList(
     golem_add_external_resources(),
@@ -74,14 +75,21 @@ app_ui <- function(request) {
           shinydashboard::tabItem("growth_rate",
                                   SaldaeModulesUI::SA_tisefka_gemmu_UI("SA_tisfka_gemmu")
           ),
-          # shinydashboard::tabItem("causal_impact",
-          #                         SA_clustering_ui("SA_clustering_test")
-          # ),
+          
+          
+          # ------------ Advanced Analytics
+          ## Causal Impact and Clustering
+          shinydashboard::tabItem("causal_impact",
+                                  SaldaeForecasting::SA_clustering_core_ui("SA_clustering_core_test"),
+                                  fluidRow(
+                                    column(4, d3scatter::d3scatterOutput("clust_mds")),
+                                    column(8, plotOutput("by_clusters"))
+                                  )          ),
+          
+          ## Prediction
           shinydashboard::tabItem("advanced_analytics",
                                   SaldaeModulesUI::SA_tisefka_forecast_UI("SA_tisfka_forecast")
-          )
-          
-          ,
+          ),
           #------------ reporting pool
           
           shinydashboard::tabItem("reporting_settings",

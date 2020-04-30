@@ -1,7 +1,7 @@
 
 usethis::use_package("shiny")
 usethis::use_package("prophet")
-
+usethis::use_package("d3scatter")
 usethis::use_package("shinydashboard")
 usethis::use_package("SaldaeDataExplorer")
 usethis::use_package("SaldaeModulesUI")
