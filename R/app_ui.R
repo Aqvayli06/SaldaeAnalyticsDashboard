@@ -80,12 +80,12 @@ app_ui <- function(request) {
           
           # ------------ Advanced Analytics
           ## Causal Impact and Clustering
-          shinydashboard::tabItem("causal_impact",
-                                  SaldaeForecasting::SA_clustering_core_ui("SA_clustering_core_test"),
-                                  fluidRow(
-                                    column(4, d3scatter::d3scatterOutput("clust_mds")),
-                                    column(8, plotOutput("by_clusters"))
-                                  )          ),
+          # shinydashboard::tabItem("causal_impact",
+          #                         SaldaeForecasting::SA_clustering_core_ui("SA_clustering_core_test"),
+          #                         fluidRow(
+          #                           column(4, d3scatter::d3scatterOutput("clust_mds")),
+          #                           column(8, plotOutput("by_clusters"))
+          #                         )          ),
           
           ## Prediction
           shinydashboard::tabItem("advanced_analytics",
@@ -95,11 +95,11 @@ app_ui <- function(request) {
           
           shinydashboard::tabItem("reporting_settings",
                                   SaldaeModulesUI::SA_reporting_UI("Saldae_reporting")
-          ),
-          ## Saldae Data
-          shinydashboard::tabItem("SA_data_provider",
-                                  SA_EuroStat_UI("SA_eurostat_test")
           )
+          ## Saldae Data
+          # shinydashboard::tabItem("SA_data_provider",
+          #                         SA_EuroStat_UI("SA_eurostat_test")
+          # )
         #- tagara menu item
         )
         
