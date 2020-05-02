@@ -27,7 +27,7 @@ app_server <-   function(input, output, session) {
   
   #------ Data Clustering
   clust_results <- callModule(module =  SaldaeForecasting::SA_clustering_core_mod, id = "SA_clustering_core_test", tisefka = reactive({tisefka_inu()}))
-  mds_matrix <- reactive({clustering_tisefka_mds(tsclust_results = clust_results())})
+  mds_matrix <- reactive({SaldaeForecasting::clustering_tisefka_mds(tsclust_results = clust_results())})
   output$clust_mds <- d3scatter::renderD3scatter({
     req(mds_matrix())
     d3scatter::d3scatter(mds_matrix(), ~dist_x, ~dist_y,~factor(cluster), width="100%", height=250)
@@ -52,6 +52,9 @@ app_server <-   function(input, output, session) {
   
   #------ Reporting Pool
   callModule(module = SaldaeModulesUI::SA_reporting_mod, id = "Saldae_reporting",tisefka_list = reactive({tisefka_aggregated()}))
+  
+  #------ Customisables
+  callModule(module = SA_EuroStat_mod, id = "SA_eurostat_test")
   
   ###########################################
   #########                           #######

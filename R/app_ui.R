@@ -33,7 +33,8 @@ app_ui <- function(request) {
                                          shinydashboard::menuItem("Reporting Pool", icon = icon("file-signature"), startExpanded = FALSE,
                                                                   shinydashboard::menuSubItem("Settings", tabName = "reporting_settings"),
                                                                   shinydashboard::menuSubItem("Generate and publish", tabName = "reporting_generation")
-                                         )
+                                         ),
+                                         shinydashboard::menuItem("Data Provider", icon = icon("chart-pie"), tabName = "SA_data_provider")
                                          
                                          
                                          
@@ -94,8 +95,11 @@ app_ui <- function(request) {
           
           shinydashboard::tabItem("reporting_settings",
                                   SaldaeModulesUI::SA_reporting_UI("Saldae_reporting")
+          ),
+          ## Saldae Data
+          shinydashboard::tabItem("SA_data_provider",
+                                  SA_EuroStat_UI("SA_eurostat_test")
           )
-          
         #- tagara menu item
         )
         
