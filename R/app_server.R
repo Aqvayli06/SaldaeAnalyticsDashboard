@@ -34,7 +34,7 @@ app_server <-   function(input, output, session) {
   })
   output$by_clusters <- renderPlot({
     req(mds_matrix())
-    SaldaeForecasting::clustering_sekened_crosstalk(tisefka = clust_results()$tisefka_origin,mds_CT = mds_matrix())
+    SaldaeForecasting::clustering_sekened_crosstalk(cluster_mapping = clust_results()$cluster_mapping,tisefka = clust_results()$tisefka_origin,mds_CT = mds_matrix())
   })
   #----- Value Box
   callModule(module = SaldaeModulesUI::SA_Value_box_server, id = "SA_valuebox", tisefka = tisefka_vb)
@@ -53,8 +53,8 @@ app_server <-   function(input, output, session) {
   #------ Reporting Pool
   callModule(module = SaldaeModulesUI::SA_reporting_mod, id = "Saldae_reporting",tisefka_list = reactive({tisefka_aggregated()}))
   
-  #------ Customisables
-  callModule(module = SA_EuroStat_mod, id = "SA_eurostat_test")
+  #------ Data Provider EuroStats
+  # callModule(module = SA_EuroStat_mod, id = "SA_eurostat_test")
   
   ###########################################
   #########                           #######

@@ -1,14 +1,14 @@
 ---
-title: Report
+title: Saldae Analytics Daily report
 author: Faridh
-date: 2020-04-27 22:47
+date: 2020-05-05 19:36
 output:
-  prettydoc::html_pretty:
-    theme: cayman
-    highlight: github
-    toc: yes
-    number_sections: yes
-    fig_caption: yes
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    social: menu
+    theme: sandstone
+    favicon: saldae_logo.png
+    source_code: embed
 params:
   sald_explor_chart: NA
   sald_predict_chart: NA
@@ -114,40 +114,6 @@ Column {.tabset data-width=400}
 
 ```{r, warning=FALSE}
 reactable::reactable(params$sald_predict_chart[[2]],pagination = FALSE, highlight = TRUE, height = 400)
-```
-
-### Best Sellers
-
-`r names(params$sald_explor_chart)[[3]]`
-=======================================================================
-
-
-
-Column {.tabset data-width=600}
------------------------------------------------------------------------
-
-### Sales Forecast
-
-```{r, warning=FALSE,fig.height=6}
-params$sald_explor_chart[[3]]
-
-```
-
-
-### Sales by State
-
-```{r, warning=FALSE,fig.height=4}
-reactable::reactable(params$sald_predict_chart[[3]],pagination = FALSE, highlight = TRUE, height = 200)
-
-```
-
-Column {.tabset data-width=400}
------------------------------------------------------------------------
-
-### Sales by Category
-
-```{r, warning=FALSE}
-reactable::reactable(params$sald_predict_chart[[3]],pagination = FALSE, highlight = TRUE, height = 400)
 ```
 
 ### Best Sellers
