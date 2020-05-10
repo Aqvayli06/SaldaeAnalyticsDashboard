@@ -62,6 +62,3 @@ drop_nulls <- function(x){
 rv <- shiny::reactiveValues
 rvtl <- shiny::reactiveValuesToList
 
-#' increase shiny memory for file upload
-
-options(shiny.maxRequestSize=30*1024^2)

@@ -8,8 +8,8 @@ usethis::use_package("SaldaeModulesUI")
 usethis::use_package("SaldaeForecasting")
 
 
-golem::add_js_file( "script" )
-golem::add_js_handler( "handlers" )
+golem::add_js_file("script" )
+golem::add_js_handler("handlers" )
 golem::add_css_file( "custom" )
 
 #-------Test 
