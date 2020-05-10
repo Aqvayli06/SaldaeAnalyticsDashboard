@@ -1,22 +1,29 @@
 ---
 title: Saldae Analytics Daily report
 author: Faridh
-date: 2020-05-05 19:36
+date: 2020-05-09 20:03
 output:
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    social: menu
-    theme: sandstone
-    favicon: saldae_logo.png
-    source_code: embed
+  html_document:
+    toc: yes
+    toc_float: yes
 params:
   sald_explor_chart: NA
   sald_predict_chart: NA
+  sald_introduction: NA
+  sald_report_asezwer: NA
 ---
 # Saldae {data-navmenu="Intro"}
 
-There should be something written here
 
+### Analysis Summary {data-commentary-height=200}
+
+
+
+```{r,echo=FALSE,warning=FALSE,results='asis'}
+h4(params$sald_report_asezwer)
+```
+
+***
 
 ### Intro {data-commentary-height=200}
 
@@ -48,19 +55,13 @@ Forecasting is required in many situations. Stocking an inventory may require fo
 Anomaly is rare and it represents an outlier, i.e., atypical case. The Concise Oxford Dictionaryof Mathematics Clapham (2013) denes an anomaly as an unusual and possibly erroneousobservation that does not follow the general pattern of a drawn population. Anomaly detectionis a branch of data mining that seeks to nd data points or patterns that do not t the overallpattern of the data. Studying anomalous behavior has been done in many applied areas such asnetwork security Peddabachigari u. a. (2007), nancial transactions Eskin u. a. (2002); Ahmedu. a. (2015), medical imaging Spence u. a. (2001), industrial damage detection Hollier und Austin(2002) and in earth science Das und Parthasarathy (2009), to name a few. As rare observationsoften carry important information, their proper detection is of great importance in practice.This thesis concentrates on anomaly detection in consumer micro-credit lending by usingthe state-of-the-art data mining methods.
 
 
-***
-
-`r names(params$sald_explor_chart)[[1]]`
-=======================================================================
+## `r names(params$sald_explor_chart)[[1]]` {.tabset}
 
 
-
-Column {.tabset data-width=600}
------------------------------------------------------------------------
 
 ### Sales Forecast
 
-```{r, warning=FALSE,fig.height=6}
+```{r, warning=FALSE,echo=FALSE}
 params$sald_explor_chart[[1]]
 
 ```
@@ -68,33 +69,40 @@ params$sald_explor_chart[[1]]
 
 ### Sales by State
 
-```{r, warning=FALSE,fig.height=4}
-reactable::reactable(params$sald_predict_chart[[1]],pagination = FALSE, highlight = TRUE, height = 200)
+```{r, warning=FALSE,echo=FALSE}
+
+DT::datatable(params$sald_predict_chart[[1]],
+              extensions = c('Buttons','Scroller'), options = list(
+                deferRender = TRUE,
+              scrollY = 200,
+              scroller = TRUE,
+              dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
+  )
+)
+# reactable::reactable(params$sald_predict_chart[[1]],pagination = FALSE, highlight = TRUE, height = 200)
 
 ```
 
-Column {.tabset data-width=400}
------------------------------------------------------------------------
 
-### Sales by Category
 
-```{r, warning=FALSE}
+### Sales by Category 
+
+```{r, warning=FALSE,echo=FALSE}
 reactable::reactable(params$sald_predict_chart[[1]],pagination = FALSE, highlight = TRUE, height = 400)
 ```
 
 ### Best Sellers
 
-`r names(params$sald_explor_chart)[[2]]`
-=======================================================================
+aru-d kra dagia ghas dirit
+
+## `r names(params$sald_explor_chart)[[2]]` {.tabset}
 
 
-
-Column {.tabset data-width=600}
------------------------------------------------------------------------
 
 ### Sales Forecast
 
-```{r, warning=FALSE,fig.height=6}
+```{r, warning=FALSE,echo=FALSE}
 params$sald_explor_chart[[2]]
 
 ```
@@ -102,18 +110,70 @@ params$sald_explor_chart[[2]]
 
 ### Sales by State
 
-```{r, warning=FALSE,fig.height=4}
-reactable::reactable(params$sald_predict_chart[[2]],pagination = FALSE, highlight = TRUE, height = 200)
+```{r, warning=FALSE,echo=FALSE}
+
+DT::datatable(params$sald_predict_chart[[2]],
+              extensions = c('Buttons','Scroller'), options = list(
+                deferRender = TRUE,
+              scrollY = 200,
+              scroller = TRUE,
+              dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
+  )
+)
+# reactable::reactable(params$sald_predict_chart[[2]],pagination = FALSE, highlight = TRUE, height = 200)
 
 ```
 
-Column {.tabset data-width=400}
------------------------------------------------------------------------
 
-### Sales by Category
 
-```{r, warning=FALSE}
+### Sales by Category 
+
+```{r, warning=FALSE,echo=FALSE}
 reactable::reactable(params$sald_predict_chart[[2]],pagination = FALSE, highlight = TRUE, height = 400)
 ```
 
 ### Best Sellers
+
+aru-d kra dagia ghas dirit
+
+## `r names(params$sald_explor_chart)[[3]]` {.tabset}
+
+
+
+### Sales Forecast
+
+```{r, warning=FALSE,echo=FALSE}
+params$sald_explor_chart[[3]]
+
+```
+
+
+### Sales by State
+
+```{r, warning=FALSE,echo=FALSE}
+
+DT::datatable(params$sald_predict_chart[[3]],
+              extensions = c('Buttons','Scroller'), options = list(
+                deferRender = TRUE,
+              scrollY = 200,
+              scroller = TRUE,
+              dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf', 'print')
+  )
+)
+# reactable::reactable(params$sald_predict_chart[[3]],pagination = FALSE, highlight = TRUE, height = 200)
+
+```
+
+
+
+### Sales by Category 
+
+```{r, warning=FALSE,echo=FALSE}
+reactable::reactable(params$sald_predict_chart[[3]],pagination = FALSE, highlight = TRUE, height = 400)
+```
+
+### Best Sellers
+
+aru-d kra dagia ghas dirit

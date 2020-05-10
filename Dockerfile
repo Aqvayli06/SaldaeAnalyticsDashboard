@@ -1,5 +1,5 @@
 FROM rocker/r-ver:3.6.3
-RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libssh2-1-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc zlib1g-dev && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y  git-core libcurl4-openssl-dev libgit2-dev libssh2-1-dev libssl-dev libxml2-dev make pandoc pandoc-citeproc zlib1g-dev && rm -rf /var/lib/apt/lists/*
 RUN echo "options(repos = c(CRAN = 'https://cran.rstudio.com/'), download.file.method = 'libcurl')" >> /usr/local/lib/R/etc/Rprofile.site
 RUN R -e 'install.packages("remotes")'
 RUN R -e 'remotes::install_github("r-lib/remotes", ref = "97bbf81")'
@@ -16,7 +16,9 @@ RUN Rscript -e 'remotes::install_version("SaldaeModulesUI",upgrade="never", vers
 RUN Rscript -e 'remotes::install_version("SaldaeForecasting",upgrade="never", version = "0.1")'
 RUN Rscript -e 'remotes::install_version("shinydashboard",upgrade="never", version = "0.7.1")'
 RUN Rscript -e 'remotes::install_version("prophet",upgrade="never", version = "0.6")'
+RUN Rscript -e 'remotes::install_version("pkgload",upgrade="never", version = "1.0.2")'
 RUN Rscript -e 'remotes::install_version("testthat",upgrade="never", version = "2.2.1")'
+RUN Rscript -e 'remotes::install_github("jcheng5/d3scatter@aba6687f7af974a55ee07b52bea0ccbf110623e8")'
 RUN mkdir /build_zone
 ADD . /build_zone
 WORKDIR /build_zone

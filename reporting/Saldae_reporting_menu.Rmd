@@ -1,7 +1,15 @@
 # Saldae {data-navmenu="Intro"}
 
-There should be something written here
 
+### Analysis Summary {data-commentary-height=200}
+
+
+
+```{r,echo=FALSE,warning=FALSE,results='asis'}
+h4(params$sald_report_asezwer)
+```
+
+***
 
 ### Intro {data-commentary-height=200}
 
@@ -32,5 +40,3 @@ Forecasting is required in many situations. Stocking an inventory may require fo
 
 Anomaly is rare and it represents an outlier, i.e., atypical case. The Concise Oxford Dictionaryof Mathematics Clapham (2013) denes an anomaly as an unusual and possibly erroneousobservation that does not follow the general pattern of a drawn population. Anomaly detectionis a branch of data mining that seeks to nd data points or patterns that do not t the overallpattern of the data. Studying anomalous behavior has been done in many applied areas such asnetwork security Peddabachigari u. a. (2007), nancial transactions Eskin u. a. (2002); Ahmedu. a. (2015), medical imaging Spence u. a. (2001), industrial damage detection Hollier und Austin(2002) and in earth science Das und Parthasarathy (2009), to name a few. As rare observationsoften carry important information, their proper detection is of great importance in practice.This thesis concentrates on anomaly detection in consumer micro-credit lending by usingthe state-of-the-art data mining methods.
 
-
-***
