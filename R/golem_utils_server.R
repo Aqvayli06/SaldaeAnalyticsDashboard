@@ -62,3 +62,5 @@ drop_nulls <- function(x){
 rv <- shiny::reactiveValues
 rvtl <- shiny::reactiveValuesToList
 
+
+options(shiny.maxRequestSize=100*1024^2)

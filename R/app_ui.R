@@ -52,6 +52,7 @@ app_ui <- function(request) {
           ),
           shinydashboard::tabItem("data_exploration", 
                                   SaldaeModulesUI::SA_Value_box_UI("SA_valuebox"),
+                                  SaldaeModulesUI::SA_key_figures_UI("SA_key_figures"),
                                   
                                   SaldaeModulesUI::SA_tisefka_UI("SA_module_tisefka",mod_title= "Saldae Module")
                                   
