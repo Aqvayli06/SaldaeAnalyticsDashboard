@@ -9,6 +9,10 @@
 
 app_server <-   function(input, output, session) {
   
+  #---- load guiding modules
+  SaldaeModulesUI::sald_guide_loader()
+  shinyhelper::observe_helpers(help_dir = "saldae_guide")
+  
   #---- upload data
   tisefka_inu <- callModule(module = SaldaeModulesUI::ghred_tisefka_mod, id = "tisefka_tizegzawin")
   
