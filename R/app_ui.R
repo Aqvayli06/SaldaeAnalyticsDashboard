@@ -10,6 +10,7 @@ require("dplyr")
 require("prophet")
 app_ui <- function(request) {
   tagList(
+    shinyalert::useShinyalert(),
     golem_add_external_resources(),
     shinydashboard::dashboardPage(
       shinydashboard::dashboardHeader(title = "Saldae Analytics Platform"),
@@ -25,6 +26,10 @@ app_ui <- function(request) {
                                                                   shinydashboard::menuSubItem("Growth Rate", tabName = "growth_rate"),
                                                                   shinydashboard::menuSubItem("Business", tabName = "business_charts")
                                          ),
+                                         shinydashboard::menuItem("Anomaly Pool", icon = icon("file-signature"), startExpanded = FALSE,
+                                                                  shinydashboard::menuSubItem("Anomaly Suit", tabName = "anomaly_pool")
+                                         ),
+                                         
                                          shinydashboard::menuItem("Advanced Analytics", icon = icon("chart-line"), startExpanded = FALSE,
                                                                   shinydashboard::menuSubItem("Causality", tabName = "causal_impact"),
                                                                   shinydashboard::menuSubItem("Predictions", tabName = "advanced_analytics"),
@@ -61,6 +66,11 @@ app_ui <- function(request) {
           shinydashboard::tabItem("data_insights", 
                                   SaldaeModulesUI::SA_tisefka_multiple_UI("SA_multiple_test",mod_title= "Saldae Module")
                                   ),
+          shinydashboard::tabItem("anomaly_pool", 
+                                  SaldaeModulesUI::SA_anomaly_UI("SA_anomaly_pool",mod_title= "Saldae Module")
+          ),
+          
+          
           shinydashboard::tabItem("business_charts",
                                   fluidRow(
                                     col_6(SaldaeModulesUI::Saldae_taftilt_UI("SA_taftilt_test",mod_title= "Saldae CandleStick Module")),

@@ -46,6 +46,10 @@ app_server <-   function(input, output, session) {
   #----- multiple plot multiple graphs: aggregation and anomaly detection
   callModule(module =  SaldaeModulesUI::SA_tisefka_aggregator_mod, id = "SA_time_aggregator", tisefka = reactive({tisefka_inu()}))
   
+  #----- anomaly pool module
+  callModule(module =  SaldaeModulesUI::SA_anomaly_mod, id = "SA_anomaly_pool", tisefka = reactive({tisefka_inu()}))
+  
+  
   #----- multiple plot multiple graphs: growth rates
   callModule(module =  SaldaeModulesUI::SA_tisefka_gemmu_mod, id = "SA_tisfka_gemmu", tisefka = reactive({tisefka_inu()}))
   
