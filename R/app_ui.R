@@ -17,29 +17,31 @@ app_ui <- function(request) {
       shinydashboard::dashboardSidebar(disable = FALSE,
                                        shinydashboard::sidebarMenu(
                                          shinydashboard::menuItem("Data View", tabName = "data_upload", icon = icon("table")),
-                                         shinydashboard::menuItem("Exploration", icon = icon("chart-pie"), tabName = "data_exploration"),
-                                         shinydashboard::menuItem("Preparation", icon = icon("check-circle"), startExpanded = FALSE,
-                                                                  shinydashboard::menuSubItem("Insights", tabName = "data_insights"),
-                                                                  shinydashboard::menuSubItem("Cleaning", tabName = "data_aggregation")
+                                         
+                                         shinydashboard::menuItem("Explore & Prepare", icon = icon("check-circle"), startExpanded = FALSE,
+                                                                  shinydashboard::menuSubItem("Exploration", icon = icon("chart-pie"), tabName = "data_exploration"),
+                                                                  shinydashboard::menuSubItem("Insights", icon = icon("lightbulb"), tabName = "data_insights"),
+                                                                  shinydashboard::menuSubItem("Aggregation", icon = icon("react"), tabName = "data_aggregation"),
+                                                                  shinydashboard::menuSubItem("Growth Rate", icon = icon("percent"), tabName = "growth_rate")
                                          ),
-                                         shinydashboard::menuItem("Advanced", icon = icon("briefcase"), startExpanded = FALSE,
-                                                                  shinydashboard::menuSubItem("Growth Rate", tabName = "growth_rate"),
-                                                                  shinydashboard::menuSubItem("Business", tabName = "business_charts")
-                                         ),
-                                         shinydashboard::menuItem("Anomaly Pool", icon = icon("file-signature"), startExpanded = FALSE,
-                                                                  shinydashboard::menuSubItem("Anomaly Suit", tabName = "anomaly_pool")
+                                         shinydashboard::menuItem(" Anomaly Pool", icon = icon("searchengin"), startExpanded = FALSE,
+                                                                  shinydashboard::menuSubItem("Anomaly Suit",tabName = "anomaly_pool")
                                          ),
                                          
-                                         shinydashboard::menuItem("Advanced Analytics", icon = icon("chart-line"), startExpanded = FALSE,
+                                         shinydashboard::menuItem("AI & Analytics", icon = icon("chart-line"), startExpanded = FALSE,
                                                                   shinydashboard::menuSubItem("Causality", tabName = "causal_impact"),
-                                                                  shinydashboard::menuSubItem("Predictions", tabName = "advanced_analytics"),
-                                                                  shinydashboard::menuSubItem("Scenario Simulation", tabName = "simulation_engine")
+                                                                  shinydashboard::menuSubItem("Forecasting", icon = icon("chart-bar"), tabName = "advanced_analytics")
+                                                                  # shinydashboard::menuSubItem("Scenario Simulation", tabName = "simulation_engine")
                                          ),
-                                         shinydashboard::menuItem("Reporting Pool", icon = icon("file-signature"), startExpanded = FALSE,
-                                                                  shinydashboard::menuSubItem("Settings", tabName = "reporting_settings"),
-                                                                  shinydashboard::menuSubItem("Generate and publish", tabName = "reporting_generation")
+                                         shinydashboard::menuItem("Reporting/Dashboard", icon = icon("file-signature"), startExpanded = FALSE,
+                                                                  shinydashboard::menuSubItem("Generate and publish", tabName = "saldae_report")
                                          ),
-                                         shinydashboard::menuItem("Data Provider", icon = icon("chart-pie"), tabName = "SA_data_provider")
+                                         
+                                         shinydashboard::menuItem("Focus", icon = icon("briefcase"), startExpanded = FALSE,
+                                                                  
+                                                                  shinydashboard::menuSubItem("Business", tabName = "business_charts")
+                                         ),
+                                         shinydashboard::menuItem("Data Provider", icon = icon("globe-africa"), tabName = "SA_data_provider")
                                          
                                          
                                          
@@ -52,7 +54,9 @@ app_ui <- function(request) {
         
         shinydashboard::tabItems(
           shinydashboard::tabItem("data_upload",
-                                  tisefka_inu <- SaldaeModulesUI::ghred_tisefka_UI(id = "tisefka_tizegzawin")
+                                  tisefka_inu <- SaldaeModulesUI::ghred_tisefka_UI(id = "tisefka_tizegzawin"),
+                                  
+                                  
                                   
           ),
           shinydashboard::tabItem("data_exploration", 
@@ -104,7 +108,7 @@ app_ui <- function(request) {
           ),
           #------------ reporting pool
           
-          shinydashboard::tabItem("reporting_settings",
+          shinydashboard::tabItem("saldae_report",
                                   SaldaeModulesUI::SA_reporting_UI("Saldae_reporting")
           )
           ## Saldae Data

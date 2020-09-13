@@ -16,6 +16,8 @@ app_server <-   function(input, output, session) {
   #---- upload data
   tisefka_inu <- callModule(module = SaldaeModulesUI::ghred_tisefka_mod, id = "tisefka_tizegzawin")
   
+  
+
   #---- one plot multiple graphs
   output$plot_inu <- callModule(module =  SaldaeModulesUI::SA_tisefka_mod, id = "SA_module_tisefka",tisefka = reactive({tisefka_inu()}))
   
