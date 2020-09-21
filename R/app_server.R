@@ -61,11 +61,10 @@ app_server <-   function(input, output, session) {
   
   
   #------ Forecasting tool
-  tisefka_aggregated <- callModule(module =  SaldaeModulesUI::SA_tisefka_forecast_mod, id = "SA_tisfka_forecast", tisefka = reactive({tisefka_inu()}))
-  
+  tisefka_forecasting <- callModule(module =  SaldaeModulesUI::SA_tisefka_forecast_mod, id = "SA_tisfka_forecast", tisefka = reactive({tisefka_inu()}))
   
   #------ Reporting Pool
-  callModule(module = SaldaeModulesUI::SA_reporting_mod, id = "Saldae_reporting",tisefka_list = reactive({tisefka_aggregated()}))
+  callModule(module = SaldaeModulesUI::SA_reporting_mod, id = "Saldae_reporting",tisefka_list = reactive({tisefka_forecasting()}))
   
 
   #------ Data Provider EuroStats
@@ -81,5 +80,4 @@ app_server <-   function(input, output, session) {
     stopApp()
   })
   #----- tagara
-  
 }

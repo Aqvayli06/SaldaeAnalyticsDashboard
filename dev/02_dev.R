@@ -6,6 +6,8 @@ usethis::use_package("shinydashboard")
 usethis::use_package("SaldaeDataExplorer")
 usethis::use_package("SaldaeModulesUI")
 usethis::use_package("SaldaeForecasting")
+usethis::use_package("SaldaeReporting")
+
 
 
 golem::add_js_file("script" )

@@ -13,7 +13,8 @@ app_ui <- function(request) {
     shinyalert::useShinyalert(),
     golem_add_external_resources(),
     shinydashboard::dashboardPage(
-      shinydashboard::dashboardHeader(title = "Saldae Analytics Platform"),
+      shinydashboard::dashboardHeader(title = span("SALDAE ANALYTCIS", 
+                                                       style = "color: black; font-weight: bold ;font-size: 16px")),
       shinydashboard::dashboardSidebar(disable = FALSE,
                                        shinydashboard::sidebarMenu(
                                          shinydashboard::menuItem("Data View", tabName = "data_upload", icon = icon("table")),
