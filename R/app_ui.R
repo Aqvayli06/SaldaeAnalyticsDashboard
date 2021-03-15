@@ -7,7 +7,8 @@
 
 require("shiny")
 require("dplyr")
-require("prophet")
+require("SaldaeDataExplorer")
+# library("waiter")
 app_ui <- function(request) {
   tagList(
     shinyalert::useShinyalert(),
@@ -55,6 +56,9 @@ app_ui <- function(request) {
         
         shinydashboard::tabItems(
           shinydashboard::tabItem("data_upload",
+                                  
+                                  uiOutput("contact_form")
+                                  ,
                                   tisefka_inu <- SaldaeModulesUI::ghred_tisefka_UI(id = "tisefka_tizegzawin"),
                                   
                                   

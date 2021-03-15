@@ -8,7 +8,6 @@
  
 
 app_server <-   function(input, output, session) {
-  
   #---- load guiding modules
   SaldaeModulesUI::sald_guide_loader()
   shinyhelper::observe_helpers(help_dir = "saldae_guide")
@@ -66,7 +65,6 @@ app_server <-   function(input, output, session) {
   #------ Reporting Pool
   callModule(module = SaldaeModulesUI::SA_reporting_mod, id = "Saldae_reporting",tisefka_list = reactive({tisefka_forecasting()}))
   
-
   #------ Data Provider EuroStats
   # callModule(module = SA_EuroStat_mod, id = "SA_eurostat_test")
   
